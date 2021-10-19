@@ -1,1 +1,16 @@
-aaaaa
+<div class="container">
+  <h3>All boards</h3>
+  <% @boards.each do |board| %>
+    <div class="board">
+      <p class="board_name"><%= board.name %></p>
+      <p class="board_content"><%= board.content %></p>
+    </div>
+  <% end %>
+  <div>
+    <div class="board add_button">
+      <p>+ Add new board</p>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'ログアウト', user_registration_path, data: { method: 'delete' } %>
