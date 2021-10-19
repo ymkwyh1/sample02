@@ -1,8 +1,8 @@
-class Board < ApplicationRecord
+class Task < ApplicationRecord
 
     validates :name, presence: true
     validates :content, presence: true
 
-    has_many :tasks, dependent: :destroy
-
+    belongs_to :board
+    
 end
