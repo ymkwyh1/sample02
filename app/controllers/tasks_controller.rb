@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
     def index
-        @board = Board.find_by(params[:board_id])
+        @board = Board.find_by(id: params[:board_id])
         @tasks = @board.tasks.all
     end
 
