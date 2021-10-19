@@ -1,0 +1,22 @@
+<div class="container">
+  <h3>Brackets</h3>
+
+  <div class="task">
+    <p><%= @board.name %> </p>
+  </div>
+
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <p class="task_name"><%= task.name %></p>
+      <p class="task_content"><%= task.content %></p>
+      <div class="dropdown">
+        <%= image_tag 'actions.svg', class: 'dropbtn' %>
+        <div class="dropdown-content mini">
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="task add_button">
+    <%= link_to '+ Add new card', new_board_task_path %>
+  </div>
+</div>
