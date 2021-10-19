@@ -8,9 +8,9 @@
   <% end %>
   <div>
     <div class="board add_button">
-      <p>+ Add new board</p>
+      <%= link_to '+ Add new board', new_board_path %>
     </div>
   </div>
 </div>
 
-<%= link_to 'ログアウト', user_registration_path, data: { method: 'delete' } %>
+<%= link_to 'ログアウト',user_registration_path %>

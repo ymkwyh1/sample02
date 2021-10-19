@@ -13,7 +13,9 @@
   <body>
     <header>
       <div class="container">
-        <h2 class="header_title">Boards</h2>
+        <%= link_to root_path do %>
+          <h2 class="header_title">Boards</h2>
+        <% end %>
       </div>
     </header>
     <%= yield %>
