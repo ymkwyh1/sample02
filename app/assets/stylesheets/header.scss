@@ -1,7 +1,22 @@
-header{
-    border-bottom:1px solid #CCCCCC;
+@import './variables';
 
-    .header_title{
-        font-weight: 100;
+$avatar-size: 50px;
+
+.header{
+    border-bottom:1px solid #CCCCCC;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 5px;
+
+    &_title{
+        font-weight: 300;
     }
+
+    &_avatar {
+        width: $avatar-size;
+        height: $avatar-size;
+        border-radius: 100%;
+        margin-top: 13px;
+    }
+
 }

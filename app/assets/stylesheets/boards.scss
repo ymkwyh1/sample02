@@ -1,0 +1,26 @@
+@import './variables'; 
+
+.board{
+    
+    background-color: #EEEEEE;
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    position: relative;
+
+    .board_name{
+    font-weight: bold;
+    }
+
+    &.add_button{
+        background-color:$base-bg-color;
+        border:1.5px dotted #CCCCCC;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 0px;
+        text-align: center;
+    }
+
+}
