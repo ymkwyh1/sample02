@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>All boards</h3>
+  <h3 class="headline">All boards</h3>
   <% @boards.each do |board| %>
     <%= link_to board_tasks_path(board_id: board.id) do %>
       <div class="board">

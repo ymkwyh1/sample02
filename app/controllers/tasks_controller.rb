@@ -1,24 +1,26 @@
 class TasksController < ApplicationController
 
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
     def index
         @board = Board.find_by(id: params[:board_id])
         @tasks = @board.tasks.all
     end
 
     def new
-        @board = Board.find_by(id: params[:board_id])
-        @task = @board.tasks.build
+        @task = current_user.tasks.build
     end
 
     def show
-        @board = current_user.boards.find_by(id: params[:board_id])
+        @board = Board.find_by(id: params[:board_id])
         @task = @board.tasks.find_by(id: params[:id])
+        @comments = @task.comments.all
     end
 
     def create
+        @task = current_user.tasks.build(task_params)
         @board = Board.find_by(id: params[:board_id])
-        @task = @board.tasks.build(task_params)
-        @task.user_id = current_user.id
+        @task.board_id = @board.id
         if @task.save
             redirect_to board_tasks_path(board_id: @board.id), notice: '保存しました'
         else
@@ -28,12 +30,12 @@ class TasksController < ApplicationController
     end
 
     def edit
-        @board = current_user.boards.find_by(id: params[:board_id])
+        @board = Board.find_by(id: params[:board_id])
         @task = @board.tasks.find_by(id: params[:id])
     end
 
     def update
-        @board = current_user.boards.find_by(id: params[:board_id])
+        @board = Board.find_by(id: params[:board_id])
         @task = @board.tasks.find_by(id: params[:id])
         if @task.update(task_params)
           redirect_to board_tasks_path(board_id: @board.id), notice: '更新しました'
@@ -44,10 +46,10 @@ class TasksController < ApplicationController
     end
 
     def destroy
-        @board = current_user.boards.find_by(id: params[:board_id])
-        task = @board.tasks.find_by(id: params[:id])
+        board = Board.find_by(id: params[:board_id])
+        task = board.tasks.find_by(id: params[:id])
         task.destroy
-        redirect_to board_tasks_path(board_id: @board.id), notice: '記事を削除しました'
+        redirect_to board_tasks_path(board_id: board.id), notice: '記事を削除しました'
     end
 
 
@@ -57,3 +59,4 @@ class TasksController < ApplicationController
     end
 
 end
+

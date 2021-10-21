@@ -1,6 +1,35 @@
+$avatar-size:40px;
+
 .comment{
     &_listTitle{
         font-weight: lighter;
         margin-top: 50px;
+    }
+
+    &_addButton{
+        margin-top: 30px;
+        border-radius: 10px;
+        position: relative;
+        border:1.5px dotted #BBBBBB;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 0px;
+        text-align: center;
+    }
+
+    &_avatar{
+        width: $avatar-size;
+        height: $avatar-size;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    &_container{
+        display: flex;
+        line-height: 60px;
+    }
+
+    &_content{
+        margin-left: 10px;
     }
 }
