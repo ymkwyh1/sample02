@@ -1,0 +1,32 @@
+$avatar-size:125px;
+
+.profile_container{
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .profile_nickname{
+        font-weight: bold;
+        color:black;
+        font-size: 1.3em;
+        margin-top: 10px;
+    }
+
+    .profile_introduction{
+        text-align: left;
+        width:90%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .profile_avatar{
+        text-align: center;
+
+        img{
+            width:$avatar-size;
+            height:$avatar-size;
+        }
+    }
+}

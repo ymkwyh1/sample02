@@ -18,6 +18,7 @@
 @import 'buttons';
 @import 'form';
 @import 'boards';
+@import 'profile';
 
 html {
    word-spacing: 1px;
@@ -50,4 +51,8 @@ a{
 .container {
    padding: 16px 16px;
    width: 100%;
+}
+
+img{
+   border-radius:  1000px;
 }

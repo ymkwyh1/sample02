@@ -13,16 +13,26 @@
   <body>
     <div class="header">
       <div class="container">
-        <div>
+        <div class="header_title">
+          <% unless current_page?(root_path) %>
+            <%= link_to :back do %>
+              <p><</p>
+            <% end %>
+          <% end %>
           <%= link_to root_path do %>
-            <h2 class="header_title">Boards</h2>
+            <h2>Boards</h2>
           <% end %>
         </div>
 
         <% if user_signed_in? %>
           <div class="dropdown">
-            <%= image_tag 'default-avatar.png', class: 'header_avatar dropbtn' %>
+            <% if current_user.profile&.avatar&.attached? %>
+              <%= image_tag current_user.profile.avatar, class: 'header_avatar dropbtn' %>
+            <% else %>
+              <%= image_tag 'default-avatar.png', class: 'header_avatar dropbtn' %>
+            <% end %>
             <div class="dropdown-content mini">
+              <%= link_to 'Profile', profile_path %>
               <%= link_to 'Sign out', destroy_user_session_path, data: { method: 'delete' } %>
             </div>
           </div>
