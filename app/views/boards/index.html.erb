@@ -5,13 +5,20 @@
       <div class="board">
         <p class="board_name"><%= board.name %></p>
         <p class="board_content"><%= board.content %></p>
-        <div class="dropdown">
-            <%= image_tag 'actions.svg', class: 'dropbtn' %>
-            <div class="dropdown-content mini">
-              <%= link_to 'Edit', edit_board_path(board) %>
-              <%= link_to 'Delete', board_path(board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
-            </div>
-        </div>
+        <% if board.user.profile&.avatar&.attached? %>
+          <%= image_tag board.user.profile.avatar, class: 'board_avatar' %>
+        <% else %>
+          <%= image_tag 'default-avatar.png', class: 'board_avatar' %>
+        <% end %>
+        <% if current_user && current_user.id == board.user.id%>
+          <div class="dropdown">
+              <%= image_tag 'actions.svg', class: 'dropbtn' %>
+              <div class="dropdown-content mini">
+                <%= link_to 'Edit', edit_board_path(board) %>
+                <%= link_to 'Delete', board_path(board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
+              </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   <% end %>

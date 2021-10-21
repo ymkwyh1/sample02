@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="task_displayName">
+        <h3><%= @task.name %></h3>
+    </div>
+
+    <% if current_user && current_user.id = @task.user_id%>
+          <div class="dropdown">
+            <%= image_tag 'actions.svg', class: 'dropbtn' %>
+            <div class="dropdown-content mini">
+              <%= link_to 'Edit', edit_board_task_path(board_id: @board.id, id:@task.id) %>
+              <%= link_to 'Delete', board_task_path(board_id: @board.id, id:@task.id), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
+            </div>
+        </div>
+    <% end %>
+
+
+    <div class="task_displayContent">
+        <%= @task.content %>
+    </div>
+
+    <h3 class="comment_listTitle">Comment</h3>
+
+    + Add new comment
+
+</div>
+

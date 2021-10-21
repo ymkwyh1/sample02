@@ -1,5 +1,7 @@
 @import './variables'; 
 
+$avatar-size:30px;
+
 .task{
     
     background-color: white;
@@ -14,6 +16,22 @@
     font-weight: bold;
     }
 
+    &_displayName{
+        margin-bottom: 10px;
+    }
+
+    &_displayContent{
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px 10px 
+    }
+
+    &_avatar{
+        margin-top: 15px;
+        width: $avatar-size;
+        height: $avatar-size;
+    }
+
     &.add_button{
         background-color:$base-bg-color;
         border:1.5px dotted #CCCCCC;
@@ -23,8 +41,12 @@
         text-align: center;
     }
 
-    p{
-        font-weight: bold;
+    &.headline{
+        background-color: #FFCC33;
+        
+        h3{
+            color:white;
+        }
     }
 
 }

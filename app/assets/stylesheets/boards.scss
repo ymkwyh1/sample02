@@ -1,5 +1,7 @@
 @import './variables'; 
 
+$avatar-size: 30px;
+
 .board{
     
     background-color: white;
@@ -9,6 +11,12 @@
     padding-left: 10px;
     border-radius: 10px;
     position: relative;
+
+    &_avatar{
+        margin-top: 15px;
+        width: $avatar-size;
+        height: $avatar-size;
+    }
 
     &_name{
     font-weight: bold;
