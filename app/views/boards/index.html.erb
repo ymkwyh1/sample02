@@ -10,6 +10,7 @@
         <% else %>
           <%= image_tag 'default-avatar.png', class: 'board_avatar' %>
         <% end %>
+        <p class="task_count"><%= board.tasks.count %></p>
         <% if current_user && current_user.id == board.user.id%>
           <div class="dropdown">
               <%= image_tag 'actions.svg', class: 'dropbtn' %>
