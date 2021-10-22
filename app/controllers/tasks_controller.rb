@@ -22,9 +22,9 @@ class TasksController < ApplicationController
         @board = Board.find_by(id: params[:board_id])
         @task.board_id = @board.id
         if @task.save
-            redirect_to board_tasks_path(board_id: @board.id), notice: '保存しました'
+            redirect_to board_tasks_path(board_id: @board.id), notice: 'Saved!'
         else
-            flash.now[:error] = '保存に失敗しました'
+            flash.now[:error] = 'Failed to save!'
             render :new
         end
     end
@@ -38,9 +38,9 @@ class TasksController < ApplicationController
         @board = Board.find_by(id: params[:board_id])
         @task = @board.tasks.find_by(id: params[:id])
         if @task.update(task_params)
-          redirect_to board_task_path(board_id: @board.id, id: @task.id), notice: '更新しました'
+          redirect_to board_task_path(board_id: @board.id, id: @task.id), notice: 'Updated!'
         else
-          flash.now[:error] = '更新に失敗しました'
+          flash.now[:error] = 'Failed to update!'
           render :edit
         end
     end
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
         board = Board.find_by(id: params[:board_id])
         task = board.tasks.find_by(id: params[:id])
         task.destroy
-        redirect_to board_tasks_path(board_id: board.id), notice: '記事を削除しました'
+        redirect_to board_tasks_path(board_id: board.id), notice: 'Deleted!'
     end
 
 

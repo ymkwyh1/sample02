@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to board_task_path(board_id: @board.id, id: @task.id), notice: '保存しました'
         else
-            flash.now[:error] = '保存に失敗しました'
+            flash.now[:error] = 'Failed to save!'
             render :new
         end
     end
