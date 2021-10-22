@@ -17,6 +17,17 @@
     <% end %>
 
     <div class="task_displayContent">
+      <div class="task_userInfo">
+          <% if @task.user.profile&.avatar&.attached? %>
+            <%= image_tag @task.user.profile.avatar, class: 'task_displayAvatar'  %>
+          <% else %>
+            <%= image_tag 'default-avatar.png', class: 'task_displayAvatar' %>
+          <% end %>
+        <div class="task_detail">
+          <%= @task.author_name %><br>
+          <%= @task.display_created_at %>
+        </div>
+      </div>
         <%= @task.content %>
     </div>
 

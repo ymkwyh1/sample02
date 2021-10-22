@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :accounts, only: [:show]
+
   resource :profile
 
 end

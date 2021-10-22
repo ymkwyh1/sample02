@@ -81,4 +81,21 @@ $avatar-size:30px;
         margin-top: 25px;
         margin-right: 15px;
     }
+
+    &_userInfo{
+        display: flex;
+        margin-bottom: 10px;
+
+        .task_displayAvatar{
+            width: 40px;
+            height: 40px;
+        }
+
+        .task_detail{
+            margin-left: 10px;
+            font-size: 0.8em;
+        }
+
+
+    }
 }
