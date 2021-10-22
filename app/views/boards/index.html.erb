@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>All boards</h3>
+  <h3 class="headline">All boards</h3>
   <% @boards.each do |board| %>
     <%= link_to board_tasks_path(board_id: board.id) do %>
       <div class="board">
@@ -10,6 +10,7 @@
         <% else %>
           <%= image_tag 'default-avatar.png', class: 'board_avatar' %>
         <% end %>
+        <p class="task_count"><%= board.tasks.count %></p>
         <% if current_user && current_user.id == board.user.id%>
           <div class="dropdown">
               <%= image_tag 'actions.svg', class: 'dropbtn' %>

@@ -14,15 +14,7 @@
         <% else %>
           <%= image_tag 'default-avatar.png', class: 'task_avatar' %>
         <% end %>
-        <% if current_user && current_user.id = task.user_id%>
-          <div class="dropdown">
-            <%= image_tag 'actions.svg', class: 'dropbtn' %>
-            <div class="dropdown-content mini">
-              <%= link_to 'Edit', edit_board_task_path(board_id: @board.id, id:task.id) %>
-              <%= link_to 'Delete', board_task_path(board_id: @board.id, id:task.id), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
-            </div>
-        </div>
-        <% end %>
+        <p class="comment_count"><%= task.comments.count %></p>
       </div>
     <% end %>
   <% end %>

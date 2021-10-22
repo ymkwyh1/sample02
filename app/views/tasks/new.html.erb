@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_with(model: @task, url: board_tasks_path(board_id: @board.id), method: 'post', local: true) do |f| %>
+  <%= form_with(model: @task, url: board_tasks_path, method: 'post', local: true) do |f| %>
     <div>
       <%= f.label :name, 'Name' %>
     </div>

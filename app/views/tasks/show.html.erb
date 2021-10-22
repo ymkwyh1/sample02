@@ -1,18 +1,16 @@
 <div class="container">
     <div class="task_displayName">
-        <h3><%= @task.name %></h3>
-    </div>
-
-    <% if current_user && current_user.id = @task.user_id%>
+        <h3 class="headline"><%= @task.name %></h3>
+        <% if current_user && current_user.id == @task.user_id%>
           <div class="dropdown">
             <%= image_tag 'actions.svg', class: 'dropbtn' %>
             <div class="dropdown-content mini">
               <%= link_to 'Edit', edit_board_task_path(board_id: @board.id, id:@task.id) %>
               <%= link_to 'Delete', board_task_path(board_id: @board.id, id:@task.id), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
             </div>
-        </div>
-    <% end %>
-
+          </div>
+        <% end %>
+    </div>
 
     <div class="task_displayContent">
         <%= @task.content %>
@@ -20,7 +18,20 @@
 
     <h3 class="comment_listTitle">Comment</h3>
 
-    + Add new comment
+    <% @comments.each do |comment| %>
+      <div class="comment_container">
+        <% if comment.user.profile&.avatar&.attached? %>
+          <%= image_tag comment.user.profile.avatar, class: 'comment_avatar' %>
+        <% else %>
+          <%= image_tag 'default-avatar.png', class: 'comment_avatar' %>
+        <% end %>
+        <p class="comment_content"><%= comment.content %></p>
+      </div>
+    <% end %>
+
+    <div class="comment_addButton">
+      <%= link_to '+ Add new comment', new_board_task_comment_path(board_id: @board.id, task_id:@task.id) %>
+    </div>
 
 </div>
 
