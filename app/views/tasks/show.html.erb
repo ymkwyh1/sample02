@@ -12,6 +12,10 @@
         <% end %>
     </div>
 
+    <% if @task&.eyecatch&.attached? %>
+      <%= image_tag @task.eyecatch, class:'task_displayEyecatch' %>
+    <% end %>
+
     <div class="task_displayContent">
         <%= @task.content %>
     </div>

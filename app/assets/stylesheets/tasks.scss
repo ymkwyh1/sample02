@@ -9,11 +9,13 @@ $avatar-size:30px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
+    padding-right: 10px;
     border-radius: 10px;
     position: relative;
 
     &_name{
     font-weight: bold;
+    font-size: 20px;
     }
 
     &_displayName{
@@ -31,6 +33,20 @@ $avatar-size:30px;
         background-color: white;
         border-radius: 5px;
         padding: 10px 10px 
+    }
+
+    &_eyecatch{
+        border-radius: 10px;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    &_displayEyecatch{
+        border-radius: 15px;
+        width: 100%;
+        object-fit: cover; 
+        margin-bottom: 15px;
     }
 
     &_avatar{

@@ -1,5 +1,7 @@
 class Task < ApplicationRecord
 
+    has_one_attached :eyecatch
+
     validates :name, presence: true
     validates :content, presence: true
 

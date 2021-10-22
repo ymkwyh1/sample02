@@ -1,6 +1,12 @@
 <div class="container">
   <%= form_with(model: @task, url: board_task_path, method: 'put', local: true) do |f| %>
     <div>
+      <%= f.label :name, 'Eyecatch' %>
+    </div>
+    <div>
+      <%= f.file_field :eyecatch %>
+    </div>
+    <div>
       <%= f.label :name, 'Name' %>
     </div>
     <div>
