@@ -1,0 +1,22 @@
+current directory: /Users/suvarnabhumi8/sample02/vendor/bundle/ruby/2.6.0/gems/hamlit-2.15.1/ext/hamlit
+/Users/suvarnabhumi8/.rbenv/versions/2.6.7/bin/ruby -I /Users/suvarnabhumi8/.rbenv/versions/2.6.7/lib/ruby/site_ruby/2.6.0 -r ./siteconf20211023-98054-ttmn4o.rb extconf.rb
+creating Makefile
+
+current directory: /Users/suvarnabhumi8/sample02/vendor/bundle/ruby/2.6.0/gems/hamlit-2.15.1/ext/hamlit
+make DESTDIR\= clean
+
+current directory: /Users/suvarnabhumi8/sample02/vendor/bundle/ruby/2.6.0/gems/hamlit-2.15.1/ext/hamlit
+make DESTDIR\=
+compiling hamlit.c
+In file included from hamlit.c:1:
+In file included from /Users/suvarnabhumi8/.rbenv/versions/2.6.7/include/ruby-2.6.0/ruby.h:33:
+/Users/suvarnabhumi8/.rbenv/versions/2.6.7/include/ruby-2.6.0/ruby/ruby.h:2186:35: warning: unused parameter 'allow_transient' [-Wunused-parameter]
+rb_array_ptr_use_end(VALUE a, int allow_transient)
+                                  ^
+1 warning generated.
+compiling hescape.c
+linking shared-object hamlit/hamlit.bundle
+
+current directory: /Users/suvarnabhumi8/sample02/vendor/bundle/ruby/2.6.0/gems/hamlit-2.15.1/ext/hamlit
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 hamlit.bundle ./.gem.20211023-98054-16y4jw5/hamlit

@@ -1,0 +1,11 @@
+.container
+  .profile_container
+    .profile_avatar
+      - if @user.profile&.avatar&.attached?
+        = image_tag @user.profile.avatar
+      - else
+        = image_tag 'default-avatar.png'
+    .profile_nickname
+      = @user.display_name
+    .profile_introduction
+      = @user.profile.introduction

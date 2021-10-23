@@ -1,0 +1,34 @@
+.container
+  .task_displayName
+    %h3.headline= @task.name
+    - if current_user && current_user.id == @task.user_id
+      .dropdown
+        = image_tag 'actions.svg', class: 'dropbtn'
+        .dropdown-content.mini
+          = link_to 'Edit', edit_board_task_path(board_id: @board.id, id:@task.id)
+          = link_to 'Delete', board_task_path(board_id: @board.id, id:@task.id), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+  - if @task&.eyecatch&.attached?
+    = image_tag @task.eyecatch, class:'task_displayEyecatch'
+  .task_displayContent
+    .task_userInfo
+      = link_to account_path(id: @task.user.id) do
+        - if @task.user.profile&.avatar&.attached?
+          = image_tag @task.user.profile.avatar, class: 'task_displayAvatar'
+        - else
+          = image_tag 'default-avatar.png', class: 'task_displayAvatar'
+      .task_detail
+        = @task.author_name
+        %br/
+        = @task.display_created_at
+    = @task.content
+  %h3.comment_listTitle Comment
+  - @comments.each do |comment|
+    .comment_container
+      = link_to account_path(id: comment.user.id) do
+        - if comment.user.profile&.avatar&.attached?
+          = image_tag comment.user.profile.avatar, class: 'comment_avatar'
+        - else
+          = image_tag 'default-avatar.png', class: 'comment_avatar'
+      %p.comment_content= comment.content
+  .comment_addButton
+    = link_to '+ Add new comment', new_board_task_comment_path(board_id: @board.id, task_id:@task.id)
