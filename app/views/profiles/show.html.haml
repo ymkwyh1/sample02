@@ -1,0 +1,13 @@
+.container
+  .profile_container
+    .profile_avatar
+      - if current_user.profile&.avatar&.attached?
+        = image_tag current_user.profile.avatar
+      - else
+        = image_tag 'default-avatar.png'
+    .profile_nickname
+      = @profile&.nickname
+    .profile_introduction
+      = @profile &.introduction
+  = link_to edit_profile_path do
+    %p.btn-primary Edit

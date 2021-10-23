@@ -1,0 +1,6 @@
+.container
+  %h3.headline New Comment
+  = form_with(model: @comment, url: board_task_comments_path(board_id: @board.id, task_id: @task.id), method: 'post', local: true) do |f|
+    %div
+      = f.text_area :content, class:'text'
+    = f.submit 'Submit', class: 'btn-primary'

@@ -9,16 +9,24 @@ $avatar-size:30px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
+    padding-right: 10px;
     border-radius: 10px;
     position: relative;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
     &_name{
     font-weight: bold;
+    font-size: 20px;
+    color:black;
+    opacity: 0.7;
     }
 
     &_displayName{
         margin-bottom: 10px;
         position: relative;
+        color:black;
+        opacity: 0.7;
 
         .dropbtn{
             position: absolute;
@@ -31,6 +39,20 @@ $avatar-size:30px;
         background-color: white;
         border-radius: 5px;
         padding: 10px 10px 
+    }
+
+    &_eyecatch{
+        border-radius: 10px;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    &_displayEyecatch{
+        border-radius: 15px;
+        width: 100%;
+        object-fit: cover; 
+        margin-bottom: 15px;
     }
 
     &_avatar{
@@ -46,11 +68,13 @@ $avatar-size:30px;
         padding-bottom: 20px;
         padding-left: 0px;
         text-align: center;
+        box-shadow: none;
     }
 
     &.headline{
         margin-top: 20px;
         background-color: #FFCC33;
+        opacity: 1;
         
         h3{
             color:white;
@@ -61,5 +85,22 @@ $avatar-size:30px;
         float: right;
         margin-top: 25px;
         margin-right: 15px;
+    }
+
+    &_userInfo{
+        display: flex;
+        margin-bottom: 10px;
+
+        .task_displayAvatar{
+            width: 40px;
+            height: 40px;
+        }
+
+        .task_detail{
+            margin-left: 10px;
+            font-size: 0.8em;
+        }
+
+
     }
 }

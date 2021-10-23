@@ -1,0 +1,20 @@
+.container
+  %h3.headline All boards
+  - @boards.each do |board|
+    = link_to board_tasks_path(board_id: board.id) do
+      .board
+        %p.board_name= board.name
+        %p.board_content= board.content
+        - if board.user.profile&.avatar&.attached?
+          = image_tag board.user.profile.avatar, class: 'board_avatar'
+        - else
+          = image_tag 'default-avatar.png', class: 'board_avatar'
+        %p.task_count= board.tasks.count
+        - if current_user && current_user.id == board.user.id
+          .dropdown
+            = image_tag 'actions.svg', class: 'dropbtn'
+            .dropdown-content.mini
+              = link_to 'Edit', edit_board_path(board)
+              = link_to 'Delete', board_path(board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+  .board.add_button
+    = link_to '+ Add new board', new_board_path

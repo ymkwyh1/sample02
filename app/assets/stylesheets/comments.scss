@@ -1,10 +1,6 @@
 $avatar-size:40px;
 
 .comment{
-    &_listTitle{
-        font-weight: lighter;
-        margin-top: 50px;
-    }
 
     &_addButton{
         margin-top: 30px;
@@ -21,7 +17,7 @@ $avatar-size:40px;
         width: $avatar-size;
         height: $avatar-size;
         margin-top: 10px;
-        margin-bottom: 10px;
+       
     }
 
     &_container{
@@ -37,5 +33,13 @@ $avatar-size:40px;
         float: right;
         margin-top: 25px;
         margin-right: 15px;
+    }
+
+    &_listTitle{
+        margin-bottom: 10px;
+        margin-top: 50px;
+        font-weight: bold;
+        color:black;
+        opacity: 0.7;
     }
 }
